@@ -1,0 +1,31 @@
+/* ~~~~~ GLOBAL RULES ~~~~~ */
+* {
+  font-family: fantasy;
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  justify-content: space-evenly;
+}
+
+.game-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 40% 40% 40%;
+    justify-items: center;
+    gap: 3em;
+    margin-top: 40%;
+}
