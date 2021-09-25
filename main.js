@@ -3,6 +3,7 @@ var currentGame
 // Query Selectors Here: //
 
 var gameBoard = document.querySelector('#gameGrid')
+var gamePieces = document.querySelectorAll('.grid-piece')
 var topLeft = document.querySelector('#topLeft')
 var topCenter = document.querySelector('#topCenter')
 var topRight = document.querySelector('#topRight')
@@ -19,21 +20,11 @@ var bottomRight = document.querySelector('#bottomRight')
 
 // gameBoard.addEventListener('click', testFunction)
 window.addEventListener('load', newGame)
-// gameBoard.addEventListener('click', updateBoard)
-topLeft.addEventListener('click', topLeftClick)
-topCenter.addEventListener('click', topCenterClick)
-topRight.addEventListener('click', topRightClick)
-middleLeft.addEventListener('click', middleLeftClick)
-middleCenter.addEventListener('click', middleCenterClick)
-middleRight.addEventListener('click', middleRightClick)
-bottomLeft.addEventListener('click', bottomLeftClick)
-bottomCenter.addEventListener('click', bottomCenterClick)
-bottomRight.addEventListener('click', bottomRightClick)
+gameBoard.addEventListener('click', gameClick)
 
 
-function testFunction() {
-  console.log(event.target.innerText)
-}
+
+
 
 function newGame() {
   var playerOne = new Player('🎃', 1);
@@ -41,6 +32,9 @@ function newGame() {
   currentGame = new Game(playerOne, playerTwo);
 }
 
+// function updateBoard(){
+//
+// }
 
 function updateBoard() {
   if (currentGame.gameSpaces.top1 !== null) {
@@ -114,186 +108,81 @@ function updateBoard() {
 // for updateBoard function - how does it know which box to update? something something
 // event delegation
 
-function topLeftClick() {
-  if (currentGame.gameSpaces.top1 === null) {
+function gameClick() {
+  if (event.target.id === 'topLeft') {
     if (currentGame.playerOneTurn) {
       currentGame.gameSpaces.top1 = 1;
-      currentGame.playerOneTurn = false;
-      console.log(currentGame.gameSpaces.top1);
-      currentGame.checkForWin();
-      updateBoard();
     } else {
-      currentGame.playerOneTurn = true;
-      currentGame.gameSpaces.top1 = 2;
-      console.log(currentGame.gameSpaces.top1);
-      currentGame.checkForWin();
-      updateBoard();
+      currentGame.gameSpaces.top1 = 2
     }
-  } else {
-    return
   }
-}
-
-function topCenterClick() {
-  if (currentGame.gameSpaces.top2 === null) {
+  if (event.target.id === 'topCenter') {
     if (currentGame.playerOneTurn) {
-      currentGame.playerOneTurn = false;
       currentGame.gameSpaces.top2 = 1;
-      console.log(currentGame.gameSpaces.top2)
-      currentGame.checkForWin()
-      updateBoard();
     } else {
-      currentGame.playerOneTurn = true;
-      currentGame.gameSpaces.top2 = 2;
-      console.log(currentGame.gameSpaces.top2);
-      currentGame.checkForWin();
-      updateBoard();
+      currentGame.gameSpaces.top2 = 2
     }
-  } else {
-    return
   }
-}
-
-function topRightClick() {
-  if (currentGame.gameSpaces.top3 === null) {
+  if (event.target.id === 'topRight') {
     if (currentGame.playerOneTurn) {
-      currentGame.playerOneTurn = false;
       currentGame.gameSpaces.top3 = 1;
-      console.log(currentGame.gameSpaces.top3)
-      currentGame.checkForWin()
-      updateBoard();
     } else {
-      currentGame.playerOneTurn = true;
-      currentGame.gameSpaces.top3 = 2;
-      console.log(currentGame.gameSpaces.top3)
-      currentGame.checkForWin();
-      updateBoard();
+      currentGame.gameSpaces.top3 = 2
     }
-  } else {
-    return
   }
-}
-
-function middleLeftClick() {
-  if (currentGame.gameSpaces.middle1 === null) {
+  if (event.target.id === 'middleLeft') {
     if (currentGame.playerOneTurn) {
-      currentGame.playerOneTurn = false;
       currentGame.gameSpaces.middle1 = 1;
-      console.log(currentGame.gameSpaces.middle1);
-      currentGame.checkForWin();
-      updateBoard();
     } else {
-      currentGame.playerOneTurn = true;
-      currentGame.gameSpaces.middle1 = 2;
-      console.log(currentGame.gameSpaces.middle1);
-      currentGame.checkForWin();
-      updateBoard();
+      currentGame.gameSpaces.middle1 = 2
     }
-  } else {
-    return
   }
-}
-
-function middleCenterClick() {
-  if (currentGame.gameSpaces.middle2 === null) {
+  if (event.target.id === 'middleCenter') {
     if (currentGame.playerOneTurn) {
-      currentGame.playerOneTurn = false;
       currentGame.gameSpaces.middle2 = 1;
-      console.log(currentGame.gameSpaces.middle2);
-      currentGame.checkForWin();
-      updateBoard();
     } else {
-      currentGame.playerOneTurn = true;
-      currentGame.gameSpaces.middle2 = 2;
-      console.log(currentGame.gameSpaces.middle2);
-      currentGame.checkForWin();
-      updateBoard();
+      currentGame.gameSpaces.middle2 = 2
     }
-  } else {
-    return
   }
-}
-
-function middleRightClick() {
-  if (currentGame.gameSpaces.middle3 === null) {
+  if (event.target.id === 'middleRight') {
     if (currentGame.playerOneTurn) {
-      currentGame.playerOneTurn = false;
       currentGame.gameSpaces.middle3 = 1;
-      console.log(currentGame.gameSpaces.middle3);
-      currentGame.checkForWin();
-      updateBoard();
     } else {
-      currentGame.playerOneTurn = true;
-      currentGame.gameSpaces.middle3 = 2;
-      console.log(currentGame.gameSpaces.middle3);
-      currentGame.checkForWin();
-      updateBoard();
+      currentGame.gameSpaces.middle3 = 2
     }
-  } else {
-    return
   }
-}
-
-function bottomLeftClick() {
-  if (currentGame.gameSpaces.bottom1 === null) {
+  if (event.target.id === 'bottomLeft') {
     if (currentGame.playerOneTurn) {
-      currentGame.playerOneTurn = false;
       currentGame.gameSpaces.bottom1 = 1;
-      console.log(currentGame.gameSpaces.bottom1);
-      currentGame.checkForWin();
-      updateBoard();
     } else {
-      currentGame.playerOneTurn = true;
-      currentGame.gameSpaces.bottom1 = 2;
-      console.log(currentGame.gameSpaces.bottom1);
-      currentGame.checkForWin();
-      updateBoard();
+      currentGame.gameSpaces.bottom1 = 2
     }
-  } else {
-    return
   }
-}
-
-function bottomCenterClick() {
-  if (currentGame.gameSpaces.bottom2 === null) {
+  if (event.target.id === 'bottomCenter') {
     if (currentGame.playerOneTurn) {
-      currentGame.playerOneTurn = false;
       currentGame.gameSpaces.bottom2 = 1;
-      console.log(currentGame.gameSpaces.bottom2);
-      currentGame.checkForWin();
-      updateBoard();
     } else {
-      currentGame.playerOneTurn = true;
-      currentGame.gameSpaces.bottom2 = 2;
-      console.log(currentGame.gameSpaces.bottom2);
-      currentGame.checkForWin();
-      updateBoard();
+      currentGame.gameSpaces.bottom2 = 2
     }
-  } else {
-    return
   }
-}
-
-function bottomRightClick() {
-  if (currentGame.gameSpaces.bottom3 === null) {
+  if (event.target.id === 'bottomRight') {
     if (currentGame.playerOneTurn) {
-      currentGame.playerOneTurn = false;
       currentGame.gameSpaces.bottom3 = 1;
-      console.log(currentGame.gameSpaces.bottom3);
-      currentGame.checkForWin();
-      updateBoard();
     } else {
-      currentGame.playerOneTurn = true;
-      currentGame.gameSpaces.bottom3 = 2;
-      console.log(currentGame.gameSpaces.bottom3);
-      currentGame.checkForWin();
-      updateBoard();
+      currentGame.gameSpaces.bottom3 = 2
     }
-  } else {
-    return
+  }
+  currentGame.checkForWin();
+  updateBoard();
+  if (currentGame.playerOneTurn){
+    currentGame.playerOneTurn = false;
+  } else if (!currentGame.playerOneTurn){
+    currentGame.playerOneTurn = true;
   }
 }
 
-function gameOver(){
+
+
+function gameOver() {
   gameBoard.innerHTML = `Congratulations ${currentGame.winner}!`
 }
