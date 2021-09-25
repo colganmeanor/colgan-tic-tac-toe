@@ -19,7 +19,7 @@ var bottomRight = document.querySelector('#bottomRight')
 
 // gameBoard.addEventListener('click', testFunction)
 window.addEventListener('load', newGame)
-// gameBoard.addEventListener('click', updateBoard)
+gameBoard.addEventListener('click', updateBoard)
 topLeft.addEventListener('click', topLeftClick)
 topCenter.addEventListener('click', topCenterClick)
 topRight.addEventListener('click', topRightClick)
@@ -43,12 +43,68 @@ function newGame() {
 
 
 function updateBoard() {
-  if (currentGame.playerOneTurn) {
-    event.target.innerText = 'X';
-    currentGame.playerOneTurn = false;
-  } else {
-    event.target.innerText = 'O';
-    currentGame.playerOneTurn = true;
+  if (currentGame.gameSpaces.top1 !== null) {
+    if (currentGame.gameSpaces.top1 === 1) {
+      topLeft.innerText = '🎃';
+    } else if (currentGame.gameSpaces.top1 === 2) {
+      topLeft.innerText = '🦇';
+    }
+  }
+  if (currentGame.gameSpaces.top2 !== null) {
+    if (currentGame.gameSpaces.top2 === 1) {
+      topCenter.innerText = '🎃';
+    } else if (currentGame.gameSpaces.top2 === 2) {
+      topCenter.innerText = '🦇';
+    }
+  }
+  if (currentGame.gameSpaces.top3 !== null) {
+    if (currentGame.gameSpaces.top3 === 1) {
+      topRight.innerText = '🎃';
+    } else if (currentGame.gameSpaces.top3 === 2) {
+      topRight.innerText = '🦇';
+    }
+  }
+  if (currentGame.gameSpaces.middle1 !== null) {
+    if (currentGame.gameSpaces.middle1 === 1) {
+      middleLeft.innerText = '🎃';
+    } else if (currentGame.gameSpaces.middle1 === 2) {
+      middleLeft.innerText = '🦇';
+    }
+  }
+  if (currentGame.gameSpaces.middle2 !== null) {
+    if (currentGame.gameSpaces.middle2 === 1) {
+      middleCenter.innerText = '🎃';
+    } else if (currentGame.gameSpaces.middle2 === 2) {
+      middleCenter.innerText = '🦇';
+    }
+  }
+  if (currentGame.gameSpaces.middle3 !== null) {
+    if (currentGame.gameSpaces.middle3 === 1) {
+      middleRight.innerText = '🎃';
+    } else if (currentGame.gameSpaces.middle3 === 2) {
+      middleRight.innerText = '🦇';
+    }
+  }
+  if (currentGame.gameSpaces.bottom1 !== null) {
+    if (currentGame.gameSpaces.bottom1 === 1) {
+      bottomLeft.innerText = '🎃';
+    } else if (currentGame.gameSpaces.bottom1 === 2) {
+      bottomLeft.innerText = '🦇';
+    }
+  }
+  if (currentGame.gameSpaces.bottom2 !== null) {
+    if (currentGame.gameSpaces.bottom2 === 1) {
+      bottomCenter.innerText = '🎃';
+    } else if (currentGame.gameSpaces.bottom2 === 2) {
+      bottomCenter.innerText = '🦇';
+    }
+  }
+  if (currentGame.gameSpaces.bottom3 !== null) {
+    if (currentGame.gameSpaces.bottom3 === 1) {
+      bottomRight.innerText = '🎃';
+    } else if (currentGame.gameSpaces.bottom3 === 2) {
+      bottomRight.innerText = '🦇';
+    }
   }
 }
 //for updateBoard : when a user clicks on a specific place on the gameboard -
@@ -61,17 +117,17 @@ function updateBoard() {
 function topLeftClick() {
   if (currentGame.gameSpaces.top1 === null) {
     if (currentGame.playerOneTurn) {
-      event.target.innerText = 'X';
-      currentGame.playerOneTurn = false;
       currentGame.gameSpaces.top1 = 1;
+      currentGame.playerOneTurn = false;
       console.log(currentGame.gameSpaces.top1);
       currentGame.checkForWin();
+      updateBoard();
     } else {
-      event.target.innerText = 'O';
       currentGame.playerOneTurn = true;
       currentGame.gameSpaces.top1 = 2;
       console.log(currentGame.gameSpaces.top1);
       currentGame.checkForWin();
+      updateBoard();
     }
   } else {
     return
@@ -81,17 +137,17 @@ function topLeftClick() {
 function topCenterClick() {
   if (currentGame.gameSpaces.top2 === null) {
     if (currentGame.playerOneTurn) {
-      event.target.innerText = 'X';
       currentGame.playerOneTurn = false;
       currentGame.gameSpaces.top2 = 1;
       console.log(currentGame.gameSpaces.top2)
       currentGame.checkForWin()
+      updateBoard();
     } else {
-      event.target.innerText = 'O';
       currentGame.playerOneTurn = true;
       currentGame.gameSpaces.top2 = 2;
       console.log(currentGame.gameSpaces.top2);
       currentGame.checkForWin();
+      updateBoard();
     }
   } else {
     return
@@ -101,17 +157,17 @@ function topCenterClick() {
 function topRightClick() {
   if (currentGame.gameSpaces.top3 === null) {
     if (currentGame.playerOneTurn) {
-      event.target.innerText = 'X';
       currentGame.playerOneTurn = false;
       currentGame.gameSpaces.top3 = 1;
       console.log(currentGame.gameSpaces.top3)
       currentGame.checkForWin()
+      updateBoard();
     } else {
-      event.target.innerText = 'O';
       currentGame.playerOneTurn = true;
       currentGame.gameSpaces.top3 = 2;
       console.log(currentGame.gameSpaces.top3)
-      currentGame.checkForWin()
+      currentGame.checkForWin();
+      updateBoard();
     }
   } else {
     return
@@ -121,17 +177,17 @@ function topRightClick() {
 function middleLeftClick() {
   if (currentGame.gameSpaces.middle1 === null) {
     if (currentGame.playerOneTurn) {
-      event.target.innerText = 'X';
       currentGame.playerOneTurn = false;
       currentGame.gameSpaces.middle1 = 1;
       console.log(currentGame.gameSpaces.middle1);
       currentGame.checkForWin();
+      updateBoard();
     } else {
-      event.target.innerText = 'O';
       currentGame.playerOneTurn = true;
       currentGame.gameSpaces.middle1 = 2;
       console.log(currentGame.gameSpaces.middle1);
       currentGame.checkForWin();
+      updateBoard();
     }
   } else {
     return
@@ -141,17 +197,17 @@ function middleLeftClick() {
 function middleCenterClick() {
   if (currentGame.gameSpaces.middle2 === null) {
     if (currentGame.playerOneTurn) {
-      event.target.innerText = 'X';
       currentGame.playerOneTurn = false;
       currentGame.gameSpaces.middle2 = 1;
       console.log(currentGame.gameSpaces.middle2);
       currentGame.checkForWin();
+      updateBoard();
     } else {
-      event.target.innerText = 'O';
       currentGame.playerOneTurn = true;
       currentGame.gameSpaces.middle2 = 2;
       console.log(currentGame.gameSpaces.middle2);
       currentGame.checkForWin();
+      updateBoard();
     }
   } else {
     return
@@ -161,17 +217,17 @@ function middleCenterClick() {
 function middleRightClick() {
   if (currentGame.gameSpaces.middle3 === null) {
     if (currentGame.playerOneTurn) {
-      event.target.innerText = 'X';
       currentGame.playerOneTurn = false;
       currentGame.gameSpaces.middle3 = 1;
       console.log(currentGame.gameSpaces.middle3);
       currentGame.checkForWin();
+      updateBoard();
     } else {
-      event.target.innerText = 'O';
       currentGame.playerOneTurn = true;
       currentGame.gameSpaces.middle3 = 2;
       console.log(currentGame.gameSpaces.middle3);
       currentGame.checkForWin();
+      updateBoard();
     }
   } else {
     return
@@ -181,17 +237,17 @@ function middleRightClick() {
 function bottomLeftClick() {
   if (currentGame.gameSpaces.bottom1 === null) {
     if (currentGame.playerOneTurn) {
-      event.target.innerText = 'X';
       currentGame.playerOneTurn = false;
       currentGame.gameSpaces.bottom1 = 1;
       console.log(currentGame.gameSpaces.bottom1);
-      currentGame.checkForWin();
+      currentGame.checkForWin
+      updateBoard();
     } else {
-      event.target.innerText = 'O';
       currentGame.playerOneTurn = true;
       currentGame.gameSpaces.bottom1 = 2;
       console.log(currentGame.gameSpaces.bottom1);
       currentGame.checkForWin();
+      updateBoard();
     }
   } else {
     return
@@ -201,17 +257,17 @@ function bottomLeftClick() {
 function bottomCenterClick() {
   if (currentGame.gameSpaces.bottom2 === null) {
     if (currentGame.playerOneTurn) {
-      event.target.innerText = 'X';
       currentGame.playerOneTurn = false;
       currentGame.gameSpaces.bottom2 = 1;
       console.log(currentGame.gameSpaces.bottom2);
       currentGame.checkForWin();
+      updateBoard();
     } else {
-      event.target.innerText = 'O';
       currentGame.playerOneTurn = true;
       currentGame.gameSpaces.bottom2 = 2;
       console.log(currentGame.gameSpaces.bottom2);
       currentGame.checkForWin();
+      updateBoard();
     }
   } else {
     return
@@ -221,17 +277,17 @@ function bottomCenterClick() {
 function bottomRightClick() {
   if (currentGame.gameSpaces.bottom3 === null) {
     if (currentGame.playerOneTurn) {
-      event.target.innerText = 'X';
       currentGame.playerOneTurn = false;
       currentGame.gameSpaces.bottom3 = 1;
       console.log(currentGame.gameSpaces.bottom3);
       currentGame.checkForWin();
+      updateBoard();
     } else {
-      event.target.innerText = 'O';
       currentGame.playerOneTurn = true;
       currentGame.gameSpaces.bottom3 = 2;
       console.log(currentGame.gameSpaces.bottom3);
       currentGame.checkForWin();
+      updateBoard();
     }
   } else {
     return
