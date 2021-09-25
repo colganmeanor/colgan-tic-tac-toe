@@ -1,8 +1,8 @@
 class Player{
-  constructor(){
-    this.token: 'token'
-    this.id =  'ID'
-    this.wins = [];
+  constructor(token, id){
+    this.token = token;
+    this.id =  id;
+    this.wins = 0;
   }
 
   saveWinsToStorage(){
@@ -16,4 +16,4 @@ class Player{
 }
 
 
-module.exports = Player
+// when player is instantiated - pass through Player Number and Token as an argument

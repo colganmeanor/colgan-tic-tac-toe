@@ -29,3 +29,8 @@ body {
     gap: 3em;
     margin-top: 40%;
 }
+
+.grid-piece {
+    border: solid;
+    padding: 10%;
+}
