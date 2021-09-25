@@ -19,7 +19,7 @@ var bottomRight = document.querySelector('#bottomRight')
 
 // gameBoard.addEventListener('click', testFunction)
 window.addEventListener('load', newGame)
-gameBoard.addEventListener('click', updateBoard)
+// gameBoard.addEventListener('click', updateBoard)
 topLeft.addEventListener('click', topLeftClick)
 topCenter.addEventListener('click', topCenterClick)
 topRight.addEventListener('click', topRightClick)
@@ -36,8 +36,8 @@ function testFunction() {
 }
 
 function newGame() {
-  var playerOne = new Player('player1token', 1);
-  var playerTwo = new Player('player2token', 2);
+  var playerOne = new Player('🎃', 1);
+  var playerTwo = new Player('🦇', 2);
   currentGame = new Game(playerOne, playerTwo);
 }
 
@@ -45,65 +45,65 @@ function newGame() {
 function updateBoard() {
   if (currentGame.gameSpaces.top1 !== null) {
     if (currentGame.gameSpaces.top1 === 1) {
-      topLeft.innerText = '🎃';
+      topLeft.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.top1 === 2) {
-      topLeft.innerText = '🦇';
+      topLeft.innerText = currentGame.playerTwo.token;
     }
   }
   if (currentGame.gameSpaces.top2 !== null) {
     if (currentGame.gameSpaces.top2 === 1) {
-      topCenter.innerText = '🎃';
+      topCenter.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.top2 === 2) {
-      topCenter.innerText = '🦇';
+      topCenter.innerText = currentGame.playerTwo.token;
     }
   }
   if (currentGame.gameSpaces.top3 !== null) {
     if (currentGame.gameSpaces.top3 === 1) {
-      topRight.innerText = '🎃';
+      topRight.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.top3 === 2) {
-      topRight.innerText = '🦇';
+      topRight.innerText = currentGame.playerTwo.token;
     }
   }
   if (currentGame.gameSpaces.middle1 !== null) {
     if (currentGame.gameSpaces.middle1 === 1) {
-      middleLeft.innerText = '🎃';
+      middleLeft.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.middle1 === 2) {
-      middleLeft.innerText = '🦇';
+      middleLeft.innerText = currentGame.playerTwo.token;
     }
   }
   if (currentGame.gameSpaces.middle2 !== null) {
     if (currentGame.gameSpaces.middle2 === 1) {
-      middleCenter.innerText = '🎃';
+      middleCenter.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.middle2 === 2) {
-      middleCenter.innerText = '🦇';
+      middleCenter.innerText = currentGame.playerTwo.token;
     }
   }
   if (currentGame.gameSpaces.middle3 !== null) {
     if (currentGame.gameSpaces.middle3 === 1) {
-      middleRight.innerText = '🎃';
+      middleRight.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.middle3 === 2) {
-      middleRight.innerText = '🦇';
+      middleRight.innerText = currentGame.playerTwo.token;
     }
   }
   if (currentGame.gameSpaces.bottom1 !== null) {
     if (currentGame.gameSpaces.bottom1 === 1) {
-      bottomLeft.innerText = '🎃';
+      bottomLeft.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.bottom1 === 2) {
-      bottomLeft.innerText = '🦇';
+      bottomLeft.innerText = currentGame.playerTwo.token;
     }
   }
   if (currentGame.gameSpaces.bottom2 !== null) {
     if (currentGame.gameSpaces.bottom2 === 1) {
-      bottomCenter.innerText = '🎃';
+      bottomCenter.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.bottom2 === 2) {
-      bottomCenter.innerText = '🦇';
+      bottomCenter.innerText = currentGame.playerTwo.token;
     }
   }
   if (currentGame.gameSpaces.bottom3 !== null) {
     if (currentGame.gameSpaces.bottom3 === 1) {
-      bottomRight.innerText = '🎃';
+      bottomRight.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.bottom3 === 2) {
-      bottomRight.innerText = '🦇';
+      bottomRight.innerText = currentGame.playerTwo.token;
     }
   }
 }
@@ -240,7 +240,7 @@ function bottomLeftClick() {
       currentGame.playerOneTurn = false;
       currentGame.gameSpaces.bottom1 = 1;
       console.log(currentGame.gameSpaces.bottom1);
-      currentGame.checkForWin
+      currentGame.checkForWin();
       updateBoard();
     } else {
       currentGame.playerOneTurn = true;
@@ -292,4 +292,8 @@ function bottomRightClick() {
   } else {
     return
   }
+}
+
+function gameOver(){
+  gameBoard.innerHTML = `Congratulations ${currentGame.winner}!`
 }
