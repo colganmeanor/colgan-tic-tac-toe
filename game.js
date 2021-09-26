@@ -15,6 +15,7 @@ class Game {
     }
     this.playerOneTurn = true;
     this.winner = null;
+    this.won = false;
   }
 
   // this method will have some complex logic that will be checking various combinations of

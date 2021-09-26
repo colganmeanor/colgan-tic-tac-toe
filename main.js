@@ -47,17 +47,21 @@ function gameClick() {
   }
 }
 
+// function updateBoard(){
+//   if (currentGame.gameSpaces)
+// }
+
+
 // function updateBoard(event) {
 //   if (currentGame.gameSpaces[event] !== null) {
-//     for (var i = 0; i < gameBoard.childNodes.length; i++) {
 //       if (currentGame.gameSpaces[event] === 1) {
-//         gameBoard.childNodes[i].innerText = currentGame.playerOne.token;
+//         gameBoard.childNodes[event].innerText = currentGame.playerOne.token;
 //       } else if (currentGame.gameSpaces[event] === 2) {
-//         gameBoard.childNodes[i].innerText = currentGame.playerTwo.token;
+//         gameBoard.childNodes[event].innerText = currentGame.playerTwo.token;
 //       }
 //     }
 //   }
-// }
+
 
 // updateBoard should check the object properties of currentGame.gameSpaces
 // and should say if currentGame.gameSpaces
