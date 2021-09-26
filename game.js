@@ -19,14 +19,7 @@ class Game {
     this.draw = false;
   }
 
-  // this method will have some complex logic that will be checking various combinations of
-  // currentGame.gameSpaces to determine if a win has occured. If no win has occured then it will return
-  // and exit the function.
-  //this method will also need to have logic to determine if a draw has occured.
 
-
-  // for checkforWin - considering to output a boolean value. perhaps game object has a property called this.won, and the output
-  // of checkForWin returns a true or false value to that property. coudl also help for logic handling of a draw.
 
   checkForWin(i) {
     if (this.gameSpaces.topLeft === i && this.gameSpaces.topCenter === i && this.gameSpaces.topRight === i) {
@@ -66,6 +59,16 @@ class Game {
       } else {
         return false;
       }
+    }
+  }
+
+  determineWinner(){
+    if (this.checkForWin(1) === true){
+      this.winner = 'Player 1';
+      this.playerOne.wins++
+    } else if (this.checkForWin(2) === true){
+      this.winner = 'Player 2';
+      this.playerTwo.wins++
     }
   }
 
