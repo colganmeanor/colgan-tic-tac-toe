@@ -162,14 +162,14 @@ function gameOver() {
 }
 
 function displayResults(){
-  resultMessage.classList.remove('hidden')
-  setTimeout(wipeBoard, 3000)
+  toggleBoard();
+  setTimeout(wipeBoard, 3000);
 }
 
 function wipeBoard(){
   currentGame.resetGameBoard();
   updateBoard();
-  resultMessage.classList.add('hidden');
+  toggleBoard();
   resultMessage.innerHTML = ``;
 }
 
@@ -179,5 +179,15 @@ function updateScore(){
   }
   if (currentGame.playerTwoWins !== null){
     playerTwoSection.innerText = `${currentGame.playerTwo.wins}`
+  }
+}
+
+function toggleBoard(){
+  if (resultMessage.classList.contains('hidden')){
+    resultMessage.classList.remove('hidden');
+    gameBoard.classList.add('hidden');
+  } else {
+    resultMessage.classList.add('hidden');
+    gameBoard.classList.remove('hidden')
   }
 }
