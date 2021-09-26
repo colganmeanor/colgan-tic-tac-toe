@@ -37,66 +37,66 @@ function newGame() {
 // }
 
 function updateBoard() {
-  if (currentGame.gameSpaces.top1 !== null) {
-    if (currentGame.gameSpaces.top1 === 1) {
+  if (currentGame.gameSpaces.topLeft !== null) {
+    if (currentGame.gameSpaces.topLeft === 1) {
       topLeft.innerText = currentGame.playerOne.token;
-    } else if (currentGame.gameSpaces.top1 === 2) {
+    } else if (currentGame.gameSpaces.topLeft === 2) {
       topLeft.innerText = currentGame.playerTwo.token;
     }
   }
-  if (currentGame.gameSpaces.top2 !== null) {
-    if (currentGame.gameSpaces.top2 === 1) {
+  if (currentGame.gameSpaces.topCenter !== null) {
+    if (currentGame.gameSpaces.topCenter === 1) {
       topCenter.innerText = currentGame.playerOne.token;
-    } else if (currentGame.gameSpaces.top2 === 2) {
+    } else if (currentGame.gameSpaces.topCenter === 2) {
       topCenter.innerText = currentGame.playerTwo.token;
     }
   }
-  if (currentGame.gameSpaces.top3 !== null) {
-    if (currentGame.gameSpaces.top3 === 1) {
+  if (currentGame.gameSpaces.topRight !== null) {
+    if (currentGame.gameSpaces.topRight === 1) {
       topRight.innerText = currentGame.playerOne.token;
-    } else if (currentGame.gameSpaces.top3 === 2) {
+    } else if (currentGame.gameSpaces.topRight === 2) {
       topRight.innerText = currentGame.playerTwo.token;
     }
   }
-  if (currentGame.gameSpaces.middle1 !== null) {
-    if (currentGame.gameSpaces.middle1 === 1) {
+  if (currentGame.gameSpaces.middleLeft !== null) {
+    if (currentGame.gameSpaces.middleLeft === 1) {
       middleLeft.innerText = currentGame.playerOne.token;
-    } else if (currentGame.gameSpaces.middle1 === 2) {
+    } else if (currentGame.gameSpaces.middleLeft === 2) {
       middleLeft.innerText = currentGame.playerTwo.token;
     }
   }
-  if (currentGame.gameSpaces.middle2 !== null) {
-    if (currentGame.gameSpaces.middle2 === 1) {
+  if (currentGame.gameSpaces.middleCenter !== null) {
+    if (currentGame.gameSpaces.middleCenter === 1) {
       middleCenter.innerText = currentGame.playerOne.token;
-    } else if (currentGame.gameSpaces.middle2 === 2) {
+    } else if (currentGame.gameSpaces.middleCenter === 2) {
       middleCenter.innerText = currentGame.playerTwo.token;
     }
   }
-  if (currentGame.gameSpaces.middle3 !== null) {
-    if (currentGame.gameSpaces.middle3 === 1) {
+  if (currentGame.gameSpaces.middleRight !== null) {
+    if (currentGame.gameSpaces.middleRight === 1) {
       middleRight.innerText = currentGame.playerOne.token;
-    } else if (currentGame.gameSpaces.middle3 === 2) {
+    } else if (currentGame.gameSpaces.middleRight === 2) {
       middleRight.innerText = currentGame.playerTwo.token;
     }
   }
-  if (currentGame.gameSpaces.bottom1 !== null) {
-    if (currentGame.gameSpaces.bottom1 === 1) {
+  if (currentGame.gameSpaces.bottomLeft !== null) {
+    if (currentGame.gameSpaces.bottomLeft === 1) {
       bottomLeft.innerText = currentGame.playerOne.token;
-    } else if (currentGame.gameSpaces.bottom1 === 2) {
+    } else if (currentGame.gameSpaces.bottomLeft === 2) {
       bottomLeft.innerText = currentGame.playerTwo.token;
     }
   }
-  if (currentGame.gameSpaces.bottom2 !== null) {
-    if (currentGame.gameSpaces.bottom2 === 1) {
+  if (currentGame.gameSpaces.bottomCenter !== null) {
+    if (currentGame.gameSpaces.bottomCenter === 1) {
       bottomCenter.innerText = currentGame.playerOne.token;
-    } else if (currentGame.gameSpaces.bottom2 === 2) {
+    } else if (currentGame.gameSpaces.bottomCenter === 2) {
       bottomCenter.innerText = currentGame.playerTwo.token;
     }
   }
-  if (currentGame.gameSpaces.bottom3 !== null) {
-    if (currentGame.gameSpaces.bottom3 === 1) {
+  if (currentGame.gameSpaces.bottomRight !== null) {
+    if (currentGame.gameSpaces.bottomRight === 1) {
       bottomRight.innerText = currentGame.playerOne.token;
-    } else if (currentGame.gameSpaces.bottom3 === 2) {
+    } else if (currentGame.gameSpaces.bottomRight === 2) {
       bottomRight.innerText = currentGame.playerTwo.token;
     }
   }
@@ -109,77 +109,20 @@ function updateBoard() {
 // event delegation
 
 function gameClick() {
-  if (event.target.id === 'topLeft') {
+  if (event.target.class = 'grid-piece') {
     if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces.top1 = 1;
+      currentGame.gameSpaces[event.target.id] = 1;
     } else {
-      currentGame.gameSpaces.top1 = 2
+      currentGame.gameSpaces[event.target.id] = 2;
+      currentGame.playerOneTurn = true;
     }
-  }
-  if (event.target.id === 'topCenter') {
-    if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces.top2 = 1;
-    } else {
-      currentGame.gameSpaces.top2 = 2
-    }
-  }
-  if (event.target.id === 'topRight') {
-    if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces.top3 = 1;
-    } else {
-      currentGame.gameSpaces.top3 = 2
-    }
-  }
-  if (event.target.id === 'middleLeft') {
-    if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces.middle1 = 1;
-    } else {
-      currentGame.gameSpaces.middle1 = 2
-    }
-  }
-  if (event.target.id === 'middleCenter') {
-    if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces.middle2 = 1;
-    } else {
-      currentGame.gameSpaces.middle2 = 2
-    }
-  }
-  if (event.target.id === 'middleRight') {
-    if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces.middle3 = 1;
-    } else {
-      currentGame.gameSpaces.middle3 = 2
-    }
-  }
-  if (event.target.id === 'bottomLeft') {
-    if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces.bottom1 = 1;
-    } else {
-      currentGame.gameSpaces.bottom1 = 2
-    }
-  }
-  if (event.target.id === 'bottomCenter') {
-    if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces.bottom2 = 1;
-    } else {
-      currentGame.gameSpaces.bottom2 = 2
-    }
-  }
-  if (event.target.id === 'bottomRight') {
-    if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces.bottom3 = 1;
-    } else {
-      currentGame.gameSpaces.bottom3 = 2
-    }
-  }
-  currentGame.checkForWin();
-  updateBoard();
-  if (currentGame.playerOneTurn){
-    currentGame.playerOneTurn = false;
-  } else if (!currentGame.playerOneTurn){
-    currentGame.playerOneTurn = true;
+    currentGame.checkForWin();
+    currentGame.turnManager();
+    updateBoard();
   }
 }
+
+
 
 
 
