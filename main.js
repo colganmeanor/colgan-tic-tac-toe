@@ -13,12 +13,12 @@ var middleRight = document.querySelector('#middleRight')
 var bottomLeft = document.querySelector('#bottomLeft')
 var bottomCenter = document.querySelector('#bottomCenter')
 var bottomRight = document.querySelector('#bottomRight')
+var playerOneSection = document.querySelector('#playerOneWins')
+var playerTwoSection = document.querySelector('#playerTwoWins')
 
 
 
 // Event Listeners: //
-
-// gameBoard.addEventListener('click', testFunction)
 window.addEventListener('load', newGame)
 gameBoard.addEventListener('click', gameClick)
 
@@ -125,8 +125,18 @@ function updateBoard() {
 
 function gameOver() {
   if (!currentGame.draw && currentGame.won === true) {
+    updateScore();
     gameBoard.innerHTML = `Congratulations ${currentGame.winner}!`
   } else if (currentGame.draw === true && !currentGame.won) {
     gameBoard.innerHTML = `It's a draw.`
+  }
+}
+
+function updateScore(){
+  if (currentGame.playerOne.wins !== null){
+    playerOneSection.innerText = `${currentGame.playerOne.wins}`
+  }
+  if (currentGame.playerTwoWins !== null){
+    playerTwoSection.innerText = `${currentGame.playerTwo.wins}`
   }
 }
