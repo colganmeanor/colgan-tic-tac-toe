@@ -41,30 +41,19 @@ function gameClick() {
         currentGame.gameSpaces[event.target.id] = 2;
       }
     }
+    updateBoard();
+    currentGame.turnManager();
     currentGame.checkForWin(1);
     currentGame.checkForWin(2);
-    currentGame.turnManager();
     currentGame.checkForDraw();
-    updateBoard();
+    currentGame.determineWinner();
     gameOver();
   }
 }
 
 
 
-// function updateBoard(event) {
-//   if (currentGame.gameSpaces[event] !== null) {
-//       if (currentGame.gameSpaces[event] === 1) {
-//         gameBoard.childNodes[event].innerText = currentGame.playerOne.token;
-//       } else if (currentGame.gameSpaces[event] === 2) {
-//         gameBoard.childNodes[event].innerText = currentGame.playerTwo.token;
-//       }
-//     }
-//   }
 
-
-// updateBoard should check the object properties of currentGame.gameSpaces
-// and should say if currentGame.gameSpaces
 
 function updateBoard() {
   if (currentGame.gameSpaces.topLeft !== null) {
@@ -131,23 +120,13 @@ function updateBoard() {
     }
   }
 }
-//for updateBoard : when a user clicks on a specific place on the gameboard -
-// the corresponding property in the game object is updated to 1 or 2, depending
-// on which player performs the click.
-
-// for updateBoard function - how does it know which box to update? something something
-// event delegation
-
-
-
-
 
 
 
 function gameOver() {
   if (!currentGame.draw && currentGame.won === true) {
     gameBoard.innerHTML = `Congratulations ${currentGame.winner}!`
-  } else if (currentGame.draw === true && !currentGame.won){
+  } else if (currentGame.draw === true && !currentGame.won) {
     gameBoard.innerHTML = `It's a draw.`
   }
 }
