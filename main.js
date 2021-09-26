@@ -114,7 +114,6 @@ function gameClick() {
       currentGame.gameSpaces[event.target.id] = 1;
     } else {
       currentGame.gameSpaces[event.target.id] = 2;
-      currentGame.playerOneTurn = true;
     }
     currentGame.checkForWin();
     currentGame.turnManager();

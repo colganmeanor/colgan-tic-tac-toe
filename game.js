@@ -99,9 +99,9 @@ class Game {
   }
 
   turnManager(){
-    if (this.playerOneTurn = true){
+    if (this.playerOneTurn === true){
       this.playerOneTurn = false
-    } else {
+    } else if (this.playerOneTurn === false) {
       this.playerOneTurn = true;
     }
   }
