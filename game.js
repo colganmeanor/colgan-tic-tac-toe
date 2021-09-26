@@ -3,17 +3,19 @@ class Game {
     this.playerOne = player1;
     this.playerTwo = player2;
     this.gameSpaces = {
-      top1: null,
-      top2: null,
-      top3: null,
-      middle1: null,
-      middle2: null,
-      middle3: null,
-      bottom1: null,
-      bottom2: null,
-      bottom3: null,
+      topLeft: null,
+      topCenter: null,
+      topRight: null,
+      middleLeft: null,
+      middleCenter: null,
+      middleRight: null,
+      bottomLeft: null,
+      bottomCenter: null,
+      bottomRight: null,
     }
     this.playerOneTurn = true;
+    this.winner = null;
+    this.won = false;
   }
 
   // this method will have some complex logic that will be checking various combinations of
@@ -21,42 +23,78 @@ class Game {
   // and exit the function.
   //this method will also need to have logic to determine if a draw has occured.
 
+
+// for checkforWin - considering to output a boolean value. perhaps game object has a property called this.won, and the output
+// of checkForWin returns a true or false value to that property. coudl also help for logic handling of a draw.
+
   checkForWin() {
-    if (this.gameSpaces.top1 === 1 && this.gameSpaces.top2 === 1 && this.gameSpaces.top3 === 1) {
-      console.log('player 1 just won')
-    } else if (this.gameSpaces.middle1 === 1 && this.gameSpaces.middle2 === 1 && this.gameSpaces.middle3 === 1) {
-      console.log('player 1 just won')
-    } else if (this.gameSpaces.bottom1 === 1 && this.gameSpaces.bottom2 === 1 && this.gameSpaces.bottom3 === 1) {
-      console.log('player 1 just won')
-    } else if (this.gameSpaces.top1 === 1 && this.gameSpaces.middle2 === 1 && this.gameSpaces.bottom3 === 1) {
-      console.log('player 1 just won')
-    } else if (this.gameSpaces.top3 === 1 && this.gameSpaces.middle2 === 1 && this.gameSpaces.bottom1 === 1) {
-      console.log('player 1 just won')
-    } else if (this.gameSpaces.top1 === 1 && this.gameSpaces.middle1 === 1 && this.gameSpaces.bottom1 === 1) {
-      console.log('player 1 just won')
-    } else if (this.gameSpaces.top2 === 1 && this.gameSpaces.middle2 === 1 && this.gameSpaces.bottom2 === 1) {
-      console.log('player 1 just won')
-    } else if (this.gameSpaces.top3 === 1 && this.gameSpaces.middle3 === 1 && this.gameSpaces.bottom3 === 1) {
-      console.log('player 1 just won')
+    if (this.gameSpaces.topLeft === 1 && this.gameSpaces.topCenter === 1 && this.gameSpaces.topRight === 1) {
+      this.playerOne.wins++;
+      this.winner = 'Player 1!'
+      gameOver();
+    } else if (this.gameSpaces.middleLeft === 1 && this.gameSpaces.middleCenter === 1 && this.gameSpaces.middleRight === 1) {
+      this.playerOne.wins++;
+      this.winner = 'Player 1!'
+      gameOver();
+    } else if (this.gameSpaces.bottomLeft === 1 && this.gameSpaces.bottomCenter === 1 && this.gameSpaces.bottomRight === 1) {
+      this.playerOne.wins++;
+      this.winner = 'Player 1!'
+      gameOver();
+    } else if (this.gameSpaces.topLeft === 1 && this.gameSpaces.middleCenter === 1 && this.gameSpaces.bottomRight === 1) {
+      this.playerOne.wins++;
+      this.winner = 'Player 1!'
+      gameOver();
+    } else if (this.gameSpaces.topRight === 1 && this.gameSpaces.middleCenter === 1 && this.gameSpaces.bottomLeft === 1) {
+      this.playerOne.wins++;
+      this.winner = 'Player 1!'
+      gameOver();
+    } else if (this.gameSpaces.topLeft === 1 && this.gameSpaces.middleLeft === 1 && this.gameSpaces.bottomLeft === 1) {
+      this.playerOne.wins++;
+      this.winner = 'Player 1!'
+      gameOver();
+    } else if (this.gameSpaces.topCenter === 1 && this.gameSpaces.middleCenter === 1 && this.gameSpaces.bottomCenter === 1) {
+      this.playerOne.wins++;
+      this.winner = 'Player 1!'
+      gameOver();
+    } else if (this.gameSpaces.topRight === 1 && this.gameSpaces.middleRight === 1 && this.gameSpaces.bottomRight === 1) {
+      this.playerOne.wins++;
+      this.winner = 'Player 1!'
+      gameOver();
     }
 
 
-    if (this.gameSpaces.top1 === 2 && this.gameSpaces.top2 === 2 && this.gameSpaces.top3 === 2) {
-      console.log('player 2 just won')
-    } else if (this.gameSpaces.middle1 === 2 && this.gameSpaces.middle2 === 2 && this.gameSpaces.middle3 === 2) {
-      console.log('player 2 just won')
-    } else if (this.gameSpaces.bottom1 === 2 && this.gameSpaces.bottom2 === 2 && this.gameSpaces.bottom3 === 2) {
-      console.log('player 2 just won')
-    } else if (this.gameSpaces.top1 === 2 && this.gameSpaces.middle2 === 2 && this.gameSpaces.bottom3 === 2) {
-      console.log('player 2 just won')
-    } else if (this.gameSpaces.top3 === 2 && this.gameSpaces.middle2 === 2 && this.gameSpaces.bottom1 === 2) {
-      console.log('player 2 just won')
-    } else if (this.gameSpaces.top1 === 2 && this.gameSpaces.middle1 === 2 && this.gameSpaces.bottom1 === 2) {
-      console.log('player 2 just won')
-    } else if (this.gameSpaces.top2 === 2 && this.gameSpaces.middle2 === 2 && this.gameSpaces.bottom2 === 2) {
-      console.log('player 2 just won')
-    } else if (this.gameSpaces.top3 === 2 && this.gameSpaces.middle3 === 2 && this.gameSpaces.bottom3 === 2) {
-      console.log('player 2 just won')
+    if (this.gameSpaces.topLeft === 2 && this.gameSpaces.topCenter === 2 && this.gameSpaces.topRight === 2) {
+      this.playerTwo.wins++;
+      this.winner = 'Player 2!'
+      gameOver();
+    } else if (this.gameSpaces.middleLeft === 2 && this.gameSpaces.middleCenter === 2 && this.gameSpaces.middleRight === 2) {
+      this.playerTwo.wins++;
+      this.winner = 'Player 2!'
+      gameOver();
+    } else if (this.gameSpaces.bottomLeft === 2 && this.gameSpaces.bottomCenter === 2 && this.gameSpaces.bottomRight === 2) {
+      this.playerTwo.wins++;
+      this.winner = 'Player 2!'
+      gameOver();
+    } else if (this.gameSpaces.topLeft === 2 && this.gameSpaces.middleCenter === 2 && this.gameSpaces.bottomRight === 2) {
+      this.playerTwo.wins++;
+      this.winner = 'Player 2!'
+      gameOver();
+    } else if (this.gameSpaces.topRight === 2 && this.gameSpaces.middleCenter === 2 && this.gameSpaces.bottomLeft === 2) {
+      this.playerTwo.wins++;
+      this.winner = 'Player 2!'
+      gameOver();
+    } else if (this.gameSpaces.topLeft === 2 && this.gameSpaces.middleLeft === 2 && this.gameSpaces.bottomLeft === 2) {
+      this.playerTwo.wins++;
+      this.winner = 'Player 2!'
+      gameOver();
+    } else if (this.gameSpaces.topCenter === 2 && this.gameSpaces.middleCenter === 2 && this.gameSpaces.bottomCenter === 2) {
+      this.playerTwo.wins++;
+      this.winner = 'Player 2!'
+      gameOver();
+    } else if (this.gameSpaces.topRight === 2 && this.gameSpaces.middleRight === 2 && this.gameSpaces.bottomRight === 2) {
+      this.playerTwo.wins++;
+      this.winner = 'Player 2!'
+      gameOver();
     }
 
   }
@@ -65,6 +103,13 @@ class Game {
     // this method will simply reset all properties within currentGame.gameSpaces to null
   }
 
+  turnManager(){
+    if (this.playerOneTurn === true){
+      this.playerOneTurn = false
+    } else if (this.playerOneTurn === false) {
+      this.playerOneTurn = true;
+    }
+  }
 }
 
 
