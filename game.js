@@ -22,6 +22,10 @@ class Game {
   // and exit the function.
   //this method will also need to have logic to determine if a draw has occured.
 
+
+// for checkforWin - considering to output a boolean value. perhaps game object has a property called this.won, and the output
+// of checkForWin returns a true or false value to that property. coudl also help for logic handling of a draw.
+
   checkForWin() {
     if (this.gameSpaces.topLeft === 1 && this.gameSpaces.topCenter === 1 && this.gameSpaces.topRight === 1) {
       this.playerOne.wins++;

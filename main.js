@@ -32,9 +32,35 @@ function newGame() {
   currentGame = new Game(playerOne, playerTwo);
 }
 
-// function updateBoard(){
-//
+function gameClick() {
+  if (event.target.class = 'grid-piece') {
+    if (currentGame.gameSpaces[event.target.id] === null) {
+      if (currentGame.playerOneTurn) {
+        currentGame.gameSpaces[event.target.id] = 1;
+      } else {
+        currentGame.gameSpaces[event.target.id] = 2;
+      }
+    }
+    currentGame.checkForWin();
+    currentGame.turnManager();
+    updateBoard();
+  }
+}
+
+// function updateBoard(event) {
+//   if (currentGame.gameSpaces[event] !== null) {
+//     for (var i = 0; i < gameBoard.childNodes.length; i++) {
+//       if (currentGame.gameSpaces[event] === 1) {
+//         gameBoard.childNodes[i].innerText = currentGame.playerOne.token;
+//       } else if (currentGame.gameSpaces[event] === 2) {
+//         gameBoard.childNodes[i].innerText = currentGame.playerTwo.token;
+//       }
+//     }
+//   }
 // }
+
+// updateBoard should check the object properties of currentGame.gameSpaces
+// and should say if currentGame.gameSpaces
 
 function updateBoard() {
   if (currentGame.gameSpaces.topLeft !== null) {
@@ -108,18 +134,7 @@ function updateBoard() {
 // for updateBoard function - how does it know which box to update? something something
 // event delegation
 
-function gameClick() {
-  if (event.target.class = 'grid-piece') {
-    if (currentGame.playerOneTurn) {
-      currentGame.gameSpaces[event.target.id] = 1;
-    } else {
-      currentGame.gameSpaces[event.target.id] = 2;
-    }
-    currentGame.checkForWin();
-    currentGame.turnManager();
-    updateBoard();
-  }
-}
+
 
 
 
