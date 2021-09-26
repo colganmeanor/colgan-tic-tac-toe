@@ -16,6 +16,7 @@ class Game {
     this.playerOneTurn = true;
     this.winner = null;
     this.won = false;
+    this.draw = false;
   }
 
   // this method will have some complex logic that will be checking various combinations of
@@ -24,100 +25,59 @@ class Game {
   //this method will also need to have logic to determine if a draw has occured.
 
 
-// for checkforWin - considering to output a boolean value. perhaps game object has a property called this.won, and the output
-// of checkForWin returns a true or false value to that property. coudl also help for logic handling of a draw.
+  // for checkforWin - considering to output a boolean value. perhaps game object has a property called this.won, and the output
+  // of checkForWin returns a true or false value to that property. coudl also help for logic handling of a draw.
 
-  checkForWin() {
-    if (this.gameSpaces.topLeft === 1 && this.gameSpaces.topCenter === 1 && this.gameSpaces.topRight === 1) {
-      this.playerOne.wins++;
-      this.winner = 'Player 1!'
-      gameOver();
-    } else if (this.gameSpaces.middleLeft === 1 && this.gameSpaces.middleCenter === 1 && this.gameSpaces.middleRight === 1) {
-      this.playerOne.wins++;
-      this.winner = 'Player 1!'
-      gameOver();
-    } else if (this.gameSpaces.bottomLeft === 1 && this.gameSpaces.bottomCenter === 1 && this.gameSpaces.bottomRight === 1) {
-      this.playerOne.wins++;
-      this.winner = 'Player 1!'
-      gameOver();
-    } else if (this.gameSpaces.topLeft === 1 && this.gameSpaces.middleCenter === 1 && this.gameSpaces.bottomRight === 1) {
-      this.playerOne.wins++;
-      this.winner = 'Player 1!'
-      gameOver();
-    } else if (this.gameSpaces.topRight === 1 && this.gameSpaces.middleCenter === 1 && this.gameSpaces.bottomLeft === 1) {
-      this.playerOne.wins++;
-      this.winner = 'Player 1!'
-      gameOver();
-    } else if (this.gameSpaces.topLeft === 1 && this.gameSpaces.middleLeft === 1 && this.gameSpaces.bottomLeft === 1) {
-      this.playerOne.wins++;
-      this.winner = 'Player 1!'
-      gameOver();
-    } else if (this.gameSpaces.topCenter === 1 && this.gameSpaces.middleCenter === 1 && this.gameSpaces.bottomCenter === 1) {
-      this.playerOne.wins++;
-      this.winner = 'Player 1!'
-      gameOver();
-    } else if (this.gameSpaces.topRight === 1 && this.gameSpaces.middleRight === 1 && this.gameSpaces.bottomRight === 1) {
-      this.playerOne.wins++;
-      this.winner = 'Player 1!'
-      gameOver();
+  checkForWin(i) {
+    if (this.gameSpaces.topLeft === i && this.gameSpaces.topCenter === i && this.gameSpaces.topRight === i) {
+      this.won = true;
+      return true;
+    } else if (this.gameSpaces.middleLeft === i && this.gameSpaces.middleCenter === i && this.gameSpaces.middleRight === i) {
+      this.won = true;
+      return true;
+    } else if (this.gameSpaces.bottomLeft === i && this.gameSpaces.bottomCenter === i && this.gameSpaces.bottomRight === i) {
+      this.won = true;
+      return true;
+    } else if (this.gameSpaces.topLeft === i && this.gameSpaces.middleCenter === i && this.gameSpaces.bottomRight === i) {
+      this.won = true;
+      return true;
+    } else if (this.gameSpaces.topRight === i && this.gameSpaces.middleCenter === i && this.gameSpaces.bottomLeft === i) {
+      this.won = true;
+      return true;
+    } else if (this.gameSpaces.topLeft === i && this.gameSpaces.middleLeft === i && this.gameSpaces.bottomLeft === i) {
+      this.won = true;
+      return true;
+    } else if (this.gameSpaces.topCenter === i && this.gameSpaces.middleCenter === i && this.gameSpaces.bottomCenter === i) {
+      this.won = true;
+      return true;
+    } else if (this.gameSpaces.topRight === i && this.gameSpaces.middleRight === i && this.gameSpaces.bottomRight === i) {
+      this.won = true;
+      return true;
+    } else {
+      return false;
     }
+  }
 
-
-    if (this.gameSpaces.topLeft === 2 && this.gameSpaces.topCenter === 2 && this.gameSpaces.topRight === 2) {
-      this.playerTwo.wins++;
-      this.winner = 'Player 2!'
-      gameOver();
-    } else if (this.gameSpaces.middleLeft === 2 && this.gameSpaces.middleCenter === 2 && this.gameSpaces.middleRight === 2) {
-      this.playerTwo.wins++;
-      this.winner = 'Player 2!'
-      gameOver();
-    } else if (this.gameSpaces.bottomLeft === 2 && this.gameSpaces.bottomCenter === 2 && this.gameSpaces.bottomRight === 2) {
-      this.playerTwo.wins++;
-      this.winner = 'Player 2!'
-      gameOver();
-    } else if (this.gameSpaces.topLeft === 2 && this.gameSpaces.middleCenter === 2 && this.gameSpaces.bottomRight === 2) {
-      this.playerTwo.wins++;
-      this.winner = 'Player 2!'
-      gameOver();
-    } else if (this.gameSpaces.topRight === 2 && this.gameSpaces.middleCenter === 2 && this.gameSpaces.bottomLeft === 2) {
-      this.playerTwo.wins++;
-      this.winner = 'Player 2!'
-      gameOver();
-    } else if (this.gameSpaces.topLeft === 2 && this.gameSpaces.middleLeft === 2 && this.gameSpaces.bottomLeft === 2) {
-      this.playerTwo.wins++;
-      this.winner = 'Player 2!'
-      gameOver();
-    } else if (this.gameSpaces.topCenter === 2 && this.gameSpaces.middleCenter === 2 && this.gameSpaces.bottomCenter === 2) {
-      this.playerTwo.wins++;
-      this.winner = 'Player 2!'
-      gameOver();
-    } else if (this.gameSpaces.topRight === 2 && this.gameSpaces.middleRight === 2 && this.gameSpaces.bottomRight === 2) {
-      this.playerTwo.wins++;
-      this.winner = 'Player 2!'
-      gameOver();
+  checkForDraw() {
+    if (this.gameSpaces.topLeft !== null && this.gameSpaces.topCenter !== null && this.gameSpaces.topRight !== null && this.gameSpaces.middleLeft !== null && this.gameSpaces.middleRight !== null && this.gameSpaces.bottomLeft !== null && this.gameSpaces.bottomCenter !== null && this.gameSpaces.bottomRight !== null) {
+      if (this.checkForWin(1) === false && this.checkForWin(2) === false) {
+        this.draw = true;
+        return true;
+      } else {
+        return false;
+      }
     }
-
   }
 
   resetGameBoard() {
     // this method will simply reset all properties within currentGame.gameSpaces to null
   }
 
-  turnManager(){
-    if (this.playerOneTurn === true){
+  turnManager() {
+    if (this.playerOneTurn === true) {
       this.playerOneTurn = false
     } else if (this.playerOneTurn === false) {
       this.playerOneTurn = true;
     }
   }
 }
-
-
-// player choice - could be a method, or a function somewhere that takes in an argument
-// of event.target and updates the innerHTML or innerText to the emoji/token of the user who is selecting
-
-// upon user click. update data model (update object property within game class/object) and THEN
-// update DOM based on the updated value of the object property.
-// update who's turn it is.
-// check for wins or draws on each click (if win state is present - return playerX has won message)
-// if no win or draw happens, then just return and exit out of the function
