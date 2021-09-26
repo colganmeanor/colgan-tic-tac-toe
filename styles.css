@@ -34,3 +34,7 @@ body {
     border: solid;
     padding: 10%;
 }
+
+.hidden {
+  display: none;
+}

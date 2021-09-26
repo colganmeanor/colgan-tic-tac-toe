@@ -15,6 +15,7 @@ var bottomCenter = document.querySelector('#bottomCenter')
 var bottomRight = document.querySelector('#bottomRight')
 var playerOneSection = document.querySelector('#playerOneWins')
 var playerTwoSection = document.querySelector('#playerTwoWins')
+var resultMessage = document.querySelector('#resultMessageBox')
 
 
 
@@ -47,7 +48,7 @@ function gameClick() {
     currentGame.checkForWin(2);
     currentGame.checkForDraw();
     currentGame.determineWinner();
-    gameOver();
+    // gameOver();
   }
 }
 
@@ -62,62 +63,88 @@ function updateBoard() {
     } else if (currentGame.gameSpaces.topLeft === 2) {
       topLeft.innerText = currentGame.playerTwo.token;
     }
+  } else {
+    topLeft.innerText = ``
   }
+
   if (currentGame.gameSpaces.topCenter !== null) {
     if (currentGame.gameSpaces.topCenter === 1) {
       topCenter.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.topCenter === 2) {
       topCenter.innerText = currentGame.playerTwo.token;
     }
+  } else {
+    topCenter.innerText = ``
   }
+
   if (currentGame.gameSpaces.topRight !== null) {
     if (currentGame.gameSpaces.topRight === 1) {
       topRight.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.topRight === 2) {
       topRight.innerText = currentGame.playerTwo.token;
     }
+  } else {
+    topRight.innerText = ``
   }
+
   if (currentGame.gameSpaces.middleLeft !== null) {
     if (currentGame.gameSpaces.middleLeft === 1) {
       middleLeft.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.middleLeft === 2) {
       middleLeft.innerText = currentGame.playerTwo.token;
     }
+  } else {
+    middleLeft.innerText = ``
   }
+
   if (currentGame.gameSpaces.middleCenter !== null) {
     if (currentGame.gameSpaces.middleCenter === 1) {
       middleCenter.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.middleCenter === 2) {
       middleCenter.innerText = currentGame.playerTwo.token;
     }
+  } else {
+    middleCenter.innerText = ``
   }
+
   if (currentGame.gameSpaces.middleRight !== null) {
     if (currentGame.gameSpaces.middleRight === 1) {
       middleRight.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.middleRight === 2) {
       middleRight.innerText = currentGame.playerTwo.token;
     }
+  } else {
+    middleRight.innerText = ``
   }
+
   if (currentGame.gameSpaces.bottomLeft !== null) {
     if (currentGame.gameSpaces.bottomLeft === 1) {
       bottomLeft.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.bottomLeft === 2) {
       bottomLeft.innerText = currentGame.playerTwo.token;
     }
+  } else {
+    bottomLeft.innerText = ``
   }
+
   if (currentGame.gameSpaces.bottomCenter !== null) {
     if (currentGame.gameSpaces.bottomCenter === 1) {
       bottomCenter.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.bottomCenter === 2) {
       bottomCenter.innerText = currentGame.playerTwo.token;
     }
+  } else {
+    bottomCenter.innerText = ``
   }
+
   if (currentGame.gameSpaces.bottomRight !== null) {
     if (currentGame.gameSpaces.bottomRight === 1) {
       bottomRight.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.bottomRight === 2) {
       bottomRight.innerText = currentGame.playerTwo.token;
     }
+  } else {
+    bottomRight.innerText = ``
   }
 }
 
@@ -126,10 +153,24 @@ function updateBoard() {
 function gameOver() {
   if (!currentGame.draw && currentGame.won === true) {
     updateScore();
-    gameBoard.innerHTML = `Congratulations ${currentGame.winner}!`
+    resultMessage.innerHTML = `Congratulations ${currentGame.winner}!`
+    displayResults();
   } else if (currentGame.draw === true && !currentGame.won) {
-    gameBoard.innerHTML = `It's a draw.`
+    resultMessage.innerHTML = `It's a draw.`
+    displayResults();
   }
+}
+
+function displayResults(){
+  resultMessage.classList.remove('hidden')
+  setTimeout(wipeBoard, 3000)
+}
+
+function wipeBoard(){
+  currentGame.resetGameBoard();
+  updateBoard();
+  resultMessage.classList.add('hidden');
+  resultMessage.innerHTML = ``;
 }
 
 function updateScore(){
