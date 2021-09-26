@@ -41,15 +41,15 @@ function gameClick() {
         currentGame.gameSpaces[event.target.id] = 2;
       }
     }
-    currentGame.checkForWin();
+    currentGame.checkForWin(1);
+    currentGame.checkForWin(2);
     currentGame.turnManager();
+    currentGame.checkForDraw();
     updateBoard();
+    gameOver();
   }
 }
 
-// function updateBoard(){
-//   if (currentGame.gameSpaces)
-// }
 
 
 // function updateBoard(event) {
@@ -145,5 +145,9 @@ function updateBoard() {
 
 
 function gameOver() {
-  gameBoard.innerHTML = `Congratulations ${currentGame.winner}!`
+  if (!currentGame.draw && currentGame.won === true) {
+    gameBoard.innerHTML = `Congratulations ${currentGame.winner}!`
+  } else if (currentGame.draw === true && !currentGame.won){
+    gameBoard.innerHTML = `It's a draw.`
+  }
 }
