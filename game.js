@@ -72,9 +72,6 @@ class Game {
     }
   }
 
-  resetGameBoard() {
-    // this method will simply reset all properties within currentGame.gameSpaces to null
-  }
 
   turnManager() {
     if (this.playerOneTurn === true) {
