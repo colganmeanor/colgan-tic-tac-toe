@@ -70,6 +70,7 @@ class Game {
       this.winner = 'Player 2';
       this.playerTwo.wins++
     }
+    gameOver();
   }
 
 
@@ -80,4 +81,21 @@ class Game {
       this.playerOneTurn = true;
     }
   }
+
+  resetGameBoard() {
+    this.gameSpaces.topLeft = null;
+    this.gameSpaces.topCenter = null;
+    this.gameSpaces.topRight = null;
+    this.gameSpaces.middleLeft = null;
+    this.gameSpaces.middleCenter = null;
+    this.gameSpaces.middleRight = null;
+    this.gameSpaces.bottomLeft = null;
+    this.gameSpaces.bottomCenter = null;
+    this.gameSpaces.bottomRight = null;
+    this.won = false;
+    this.draw = false;
+    this.winner = null;
+    this.playerOneTurn = true;
+  }
+
 }
