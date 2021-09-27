@@ -6,6 +6,10 @@
 
 body {
   margin: auto;
+  background-image: url("imgs/spooky-background.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .top {
@@ -22,17 +26,68 @@ body {
 
 .game-grid {
     display: grid;
+    align-content: stretch;
+    grid-template-columns: 35% 45% 35%;
+    justify-items: stretch;
+    gap: 10%;
+    margin-top: 50%;
     justify-content: center;
-    align-content: center;
-    grid-template-columns: 40% 40% 40%;
-    justify-items: center;
-    gap: 3em;
-    margin-top: 40%;
+    background-color: rgba(0,0,0,.5);
+    border: solid;
+    padding: 57px;
 }
 
 .grid-piece {
+    padding: 50%;
+    margin: -15%;
+}
+
+.top-left {
+    border-bottom: solid;
+    border-right: solid;
+}
+
+.top-center {
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
+}
+
+.top-right {
+    border-bottom: solid;
+    border-left: solid;
+}
+
+.middle-left {
+    border-bottom: solid;
+    border-right: solid;
+    border-top: solid;
+}
+
+.middle-center {
     border: solid;
-    padding: 10%;
+}
+
+.middle-right {
+    border-top: solid;
+    border-left: solid;
+    border-bottom: solid;
+}
+
+.bottom-left {
+    border-top: solid;
+    border-right: solid;
+}
+
+.bottom-center {
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
+}
+
+.bottom-right {
+    border-left: solid;
+    border-top: solid;
 }
 
 .hidden {
