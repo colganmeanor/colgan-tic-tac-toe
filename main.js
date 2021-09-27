@@ -28,8 +28,8 @@ gameBoard.addEventListener('click', gameClick)
 
 
 function newGame() {
-  var playerOne = new Player('🎃', 1);
-  var playerTwo = new Player('🦇', 2);
+  var playerOne = new Player('☠️', 1);
+  var playerTwo = new Player('🎃', 2);
   currentGame = new Game(playerOne, playerTwo);
   loadPlayerWins();
   updateScore();
