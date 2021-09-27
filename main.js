@@ -31,6 +31,8 @@ function newGame() {
   var playerOne = new Player('🎃', 1);
   var playerTwo = new Player('🦇', 2);
   currentGame = new Game(playerOne, playerTwo);
+  loadPlayerWins();
+  updateScore();
 }
 
 function gameClick() {
@@ -38,23 +40,19 @@ function gameClick() {
     if (currentGame.gameSpaces[event.target.id] === null) {
       if (currentGame.playerOneTurn) {
         currentGame.gameSpaces[event.target.id] = 1;
+        currentGame.turnManager();
       } else {
         currentGame.gameSpaces[event.target.id] = 2;
+        currentGame.turnManager();
       }
     }
     updateBoard();
-    currentGame.turnManager();
     currentGame.checkForWin(1);
     currentGame.checkForWin(2);
     currentGame.checkForDraw();
     currentGame.determineWinner();
-    // gameOver();
   }
 }
-
-
-
-
 
 function updateBoard() {
   if (currentGame.gameSpaces.topLeft !== null) {
@@ -148,8 +146,6 @@ function updateBoard() {
   }
 }
 
-
-
 function gameOver() {
   if (!currentGame.draw && currentGame.won === true) {
     updateScore();
@@ -159,6 +155,7 @@ function gameOver() {
     resultMessage.innerHTML = `It's a draw.`
     displayResults();
   }
+  savePlayerWins();
 }
 
 function displayResults(){
@@ -190,4 +187,14 @@ function toggleBoard(){
     resultMessage.classList.add('hidden');
     gameBoard.classList.remove('hidden')
   }
+}
+
+function savePlayerWins(){
+  currentGame.playerOne.saveWinsToStorage();
+  currentGame.playerTwo.saveWinsToStorage();
+}
+
+function loadPlayerWins(){
+  currentGame.playerOne.retrieveWinsFromStorage();
+  currentGame.playerTwo.retrieveWinsFromStorage();
 }
