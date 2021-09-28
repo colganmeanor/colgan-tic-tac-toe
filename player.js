@@ -19,6 +19,3 @@ class Player {
   }
 
 }
-
-
-// when player is instantiated - pass through Player Number and Token as an argument

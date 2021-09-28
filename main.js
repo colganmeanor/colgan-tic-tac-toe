@@ -1,3 +1,5 @@
+// Global Variables: //
+
 var currentGame
 
 // Query Selectors Here: //
