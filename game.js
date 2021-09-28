@@ -15,6 +15,7 @@ class Game {
     }
     this.playerOneTurn = true;
     this.winner = null;
+    this.winningToken = null;
     this.won = false;
     this.draw = false;
   }
@@ -65,10 +66,12 @@ class Game {
   determineWinner(){
     if (this.checkForWin(1) === true){
       this.winner = 'Player 1';
-      this.playerOne.wins++
+      this.playerOne.wins++;
+      this.winningToken = this.playerOne.token;
     } else if (this.checkForWin(2) === true){
       this.winner = 'Player 2';
-      this.playerTwo.wins++
+      this.playerTwo.wins++;
+      this.winningToken = this.playerTwo.token;
     }
     gameOver();
   }
@@ -95,6 +98,7 @@ class Game {
     this.won = false;
     this.draw = false;
     this.winner = null;
+    this.winningToken = null;
     this.playerOneTurn = true;
   }
 

@@ -55,7 +55,7 @@ function gameClick() {
 }
 
 function updateBoard() {
-  if (currentGame.gameSpaces.topLeft !== null) {
+  if (currentGame.gameSpaces.topLeft) {
     if (currentGame.gameSpaces.topLeft === 1) {
       topLeft.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.topLeft === 2) {
@@ -65,7 +65,7 @@ function updateBoard() {
     topLeft.innerText = ``
   }
 
-  if (currentGame.gameSpaces.topCenter !== null) {
+  if (currentGame.gameSpaces.topCenter) {
     if (currentGame.gameSpaces.topCenter === 1) {
       topCenter.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.topCenter === 2) {
@@ -75,7 +75,7 @@ function updateBoard() {
     topCenter.innerText = ``
   }
 
-  if (currentGame.gameSpaces.topRight !== null) {
+  if (currentGame.gameSpaces.topRight) {
     if (currentGame.gameSpaces.topRight === 1) {
       topRight.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.topRight === 2) {
@@ -85,7 +85,7 @@ function updateBoard() {
     topRight.innerText = ``
   }
 
-  if (currentGame.gameSpaces.middleLeft !== null) {
+  if (currentGame.gameSpaces.middleLeft) {
     if (currentGame.gameSpaces.middleLeft === 1) {
       middleLeft.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.middleLeft === 2) {
@@ -95,7 +95,7 @@ function updateBoard() {
     middleLeft.innerText = ``
   }
 
-  if (currentGame.gameSpaces.middleCenter !== null) {
+  if (currentGame.gameSpaces.middleCenter) {
     if (currentGame.gameSpaces.middleCenter === 1) {
       middleCenter.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.middleCenter === 2) {
@@ -105,7 +105,7 @@ function updateBoard() {
     middleCenter.innerText = ``
   }
 
-  if (currentGame.gameSpaces.middleRight !== null) {
+  if (currentGame.gameSpaces.middleRight) {
     if (currentGame.gameSpaces.middleRight === 1) {
       middleRight.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.middleRight === 2) {
@@ -115,7 +115,7 @@ function updateBoard() {
     middleRight.innerText = ``
   }
 
-  if (currentGame.gameSpaces.bottomLeft !== null) {
+  if (currentGame.gameSpaces.bottomLeft) {
     if (currentGame.gameSpaces.bottomLeft === 1) {
       bottomLeft.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.bottomLeft === 2) {
@@ -125,7 +125,7 @@ function updateBoard() {
     bottomLeft.innerText = ``
   }
 
-  if (currentGame.gameSpaces.bottomCenter !== null) {
+  if (currentGame.gameSpaces.bottomCenter) {
     if (currentGame.gameSpaces.bottomCenter === 1) {
       bottomCenter.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.bottomCenter === 2) {
@@ -135,7 +135,7 @@ function updateBoard() {
     bottomCenter.innerText = ``
   }
 
-  if (currentGame.gameSpaces.bottomRight !== null) {
+  if (currentGame.gameSpaces.bottomRight) {
     if (currentGame.gameSpaces.bottomRight === 1) {
       bottomRight.innerText = currentGame.playerOne.token;
     } else if (currentGame.gameSpaces.bottomRight === 2) {
@@ -149,10 +149,10 @@ function updateBoard() {
 function gameOver() {
   if (!currentGame.draw && currentGame.won === true) {
     updateScore();
-    resultMessage.innerHTML = `Congratulations ${currentGame.winner}!`
+    resultMessage.innerText = `${currentGame.winningToken}, you win. For now...`
     displayResults();
   } else if (currentGame.draw === true && !currentGame.won) {
-    resultMessage.innerHTML = `It's a draw.`
+    resultMessage.innerText = `It's a draw. The status of your souls remains TBD.`
     displayResults();
   }
   savePlayerWins();
