@@ -61,10 +61,12 @@ body {
 .game-grid {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    width: 306px;
-    margin: 10px auto;
+    width: 100%;
     background-color: rgba(0,0,0,.5);
-    border: solid;
+    border: solid black 1px;
+    border-radius: 6px;
+    font-size: 78px;
+    justify-content: center;
 }
 
 
@@ -76,12 +78,12 @@ body {
 } */
 
 .grid-piece {
-    width: 100px;
-    height: 120px;
+    width: 156px;
+    height: 175px;
     cursor: pointer;
-    line-height: 100px;
-    font-size: 60px;
-    margin: 1%;
+    line-height: 161px;
+    font-size: 70px;
+    margin: 0%;
 }
 
 
@@ -130,7 +132,7 @@ body {
 }
 
 .center {
-    width: 30%;
+    width: 467px;
 }
 
 .hidden {
