@@ -25,16 +25,16 @@ body {
 }
 
 .title {
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
   text-align: center;
   border-radius: 5%;
 }
 
 .scoreboard {
-    background-color: rgba(0,0,0,.5);
-    height: 16%;
-    text-align: center;
-    border-radius: 7%;
+  background-color: rgba(0, 0, 0, .5);
+  height: 16%;
+  text-align: center;
+  border-radius: 7%;
 }
 
 .game-container {
@@ -44,95 +44,69 @@ body {
   justify-content: space-evenly;
 }
 
-/* .game-grid {
-    display: grid;
-    align-content: center;
-    grid-template-columns: 45% 45% 45%;
-    grid-template-rows: 45% 45% 45%;
-    justify-items: stretch;
-    gap: 11%;
-    justify-content: center;
-    background-color: rgba(0,0,0,.5);
-    border: solid black;
-    padding: 115px;
-    background-position: center;
-    font-size: 45px;
-} */
 .game-grid {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    width: 100%;
-    background-color: rgba(0,0,0,.5);
-    border: solid black 1px;
-    border-radius: 6px;
-    font-size: 78px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  border: solid black 1px;
+  border-radius: 6px;
+  font-size: 78px;
+  justify-content: center;
 }
-
-
-/* .grid-piece {
-    padding: 29%;
-    margin: -13%;
-    font-size: 50px;
-    height: 98px;
-} */
 
 .grid-piece {
-    width: 156px;
-    height: 175px;
-    cursor: pointer;
-    line-height: 161px;
-    font-size: 70px;
-    margin: 0%;
+  width: 156px;
+  height: 175px;
+  cursor: pointer;
+  line-height: 161px;
+  font-size: 70px;
+  margin: 0%;
 }
 
-
-
 .result-message {
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
   text-align: center;
+  width: 100%;
+  height: 30%;
+  font-size: 50px;
 }
 
 .top-left {
-    border-bottom: solid;
-    /* border-right: solid; */
+  border-bottom: solid;
 }
 
 .top-center {
-    border-bottom: solid;
-    border-left: solid;
-    border-right: solid;
+  border-bottom: solid;
+  border-left: solid;
+  border-right: solid;
 }
 
 .top-right {
-    border-bottom: solid;
-    /* border-left: solid; */
+  border-bottom: solid;
 }
 
-
 .middle-center {
-    border-left: solid;
-    border-right: solid;
+  border-left: solid;
+  border-right: solid;
 }
 
 .bottom-left {
-    border-top: solid;
-    /* border-right: solid; */
+  border-top: solid;
 }
 
 .bottom-center {
-    border-top: solid;
-    border-left: solid;
-    border-right: solid;
+  border-top: solid;
+  border-left: solid;
+  border-right: solid;
 }
 
 .bottom-right {
-    /* border-left: solid; */
-    border-top: solid;
+  border-top: solid;
 }
 
 .center {
-    width: 467px;
+  width: 467px;
 }
 
 .hidden {
