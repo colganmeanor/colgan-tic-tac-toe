@@ -158,29 +158,30 @@ function gameOver() {
   savePlayerWins();
 }
 
-function displayResults(){
+function displayResults() {
   toggleBoard();
-  setTimeout(wipeBoard, 3000);
+  setTimeout(wipeBoard, 4000);
+  laughSound();
 }
 
-function wipeBoard(){
+function wipeBoard() {
   currentGame.resetGameBoard();
   updateBoard();
   toggleBoard();
   resultMessage.innerHTML = ``;
 }
 
-function updateScore(){
-  if (currentGame.playerOne.wins !== null){
+function updateScore() {
+  if (currentGame.playerOne.wins !== null) {
     playerOneSection.innerText = `${currentGame.playerOne.wins}`
   }
-  if (currentGame.playerTwoWins !== null){
+  if (currentGame.playerTwoWins !== null) {
     playerTwoSection.innerText = `${currentGame.playerTwo.wins}`
   }
 }
 
-function toggleBoard(){
-  if (resultMessage.classList.contains('hidden')){
+function toggleBoard() {
+  if (resultMessage.classList.contains('hidden')) {
     resultMessage.classList.remove('hidden');
     gameBoard.classList.add('hidden');
   } else {
@@ -189,12 +190,23 @@ function toggleBoard(){
   }
 }
 
-function savePlayerWins(){
+function savePlayerWins() {
   currentGame.playerOne.saveWinsToStorage();
   currentGame.playerTwo.saveWinsToStorage();
 }
 
-function loadPlayerWins(){
+function loadPlayerWins() {
   currentGame.playerOne.retrieveWinsFromStorage();
   currentGame.playerTwo.retrieveWinsFromStorage();
+}
+
+function laughSound() {
+  var spookyLaugh = new Audio('spooky-laugh.mp3');
+  var spookyWereWolf = new Audio('spooky-werewolf.mp3')
+  if (currentGame.won === true) {
+    spookyLaugh.play();
+  }
+  if (currentGame.draw === true) {
+    spookyWereWolf.play();
+  }
 }
