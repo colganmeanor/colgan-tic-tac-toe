@@ -18,12 +18,14 @@ var bottomRight = document.querySelector('#bottomRight')
 var playerOneSection = document.querySelector('#playerOneWins')
 var playerTwoSection = document.querySelector('#playerTwoWins')
 var resultMessage = document.querySelector('#resultMessageBox')
+var restartButton = document.querySelector('#restartButton')
 
 
 
 // Event Listeners: //
 window.addEventListener('load', newGame)
 gameBoard.addEventListener('click', gameClick)
+restartButton.addEventListener('click', clearGame)
 
 
 
@@ -211,4 +213,13 @@ function laughSound() {
   if (currentGame.draw === true) {
     spookyWereWolf.play();
   }
+}
+
+function clearGame() {
+  var spookyBell = new Audio('spooky-bell.mp3')
+  spookyBell.play();
+  localStorage.clear();
+  currentGame.playerOne.wins = 0;
+  currentGame.playerTwo.wins = 0;
+  updateScore();
 }

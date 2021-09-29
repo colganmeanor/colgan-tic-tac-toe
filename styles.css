@@ -112,3 +112,11 @@ body {
 .hidden {
   display: none;
 }
+
+.restart-button {
+    margin-top: 15%;
+    background: black;
+    padding: 2%;
+    font-size: larger;
+    cursor: pointer;
+}
