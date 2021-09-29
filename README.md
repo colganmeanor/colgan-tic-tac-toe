@@ -15,7 +15,8 @@ Mod1 2108 FE
 ## Abstract
   This project is designed to allow two users to play a simple game of **Tic Tac Toe** in the browser. But wait... it's ***SPOOKY***! (ghost emoji). **Player 1** is represented by the ☠️, while **Player 2** is represented by 🎃.  
   
-  <img width="1438" alt="Screen Shot 2021-09-28 at 7 43 01 PM" src="https://user-images.githubusercontent.com/87510749/135184172-5c8950e1-244a-425f-afe6-b06f0ae195ef.png">
+  ![Screen Shot 2021-09-28 at 10 59 31 PM](https://user-images.githubusercontent.com/87510749/135201077-2debd3ce-1b37-4174-ad05-da2a4aa3ffe1.png)
+
 
 
   The users take turns playing the game by clicking in the box of their choice - **Player 1** always starts. We don't need to go over the rules of **Tic Tac Toe**, right? Everyone should know this by now? OK - cool. Once a player has filled in the game squares that would allow them to win, the game ends and a message is displayed that announces the winning player.
