@@ -14,15 +14,24 @@ Mod1 2108 FE
 
 ## Abstract
   This project is designed to allow two users to play a simple game of **Tic Tac Toe** in the browser. But wait... it's ***SPOOKY***! (ghost emoji). **Player 1** is represented by the ☠️, while **Player 2** is represented by 🎃.  
+  
+  <img width="1438" alt="Screen Shot 2021-09-28 at 7 43 01 PM" src="https://user-images.githubusercontent.com/87510749/135184172-5c8950e1-244a-425f-afe6-b06f0ae195ef.png">
+
 
   The users take turns playing the game by clicking in the box of their choice - **Player 1** always starts. We don't need to go over the rules of **Tic Tac Toe**, right? Everyone should know this by now? OK - cool. Once a player has filled in the game squares that would allow them to win, the game ends and a message is displayed that announces the winning player.
+  
+  ![Tic Tac Toe - Player 1 Win](https://user-images.githubusercontent.com/87510749/135184073-1fe44cbf-db0c-4c08-9cdf-47fba8d12029.gif)
+
 
   If the game is played and there is no winner, the game will announce that it has ended in a draw.
+  
+  ![Tic Tac Toe - Draw](https://user-images.githubusercontent.com/87510749/135184398-a0d7d4c5-e7dc-4da7-861c-24c0439257ce.gif)
 
-  Player wins are tracked across page refresh.
+
+  **Player wins are tracked across page refresh**.
 
   Regardless of whether the game ends in a win or a draw, the game will begin anew a few seconds after the result screen is displayed.
-  *heads up* - keep an ear out for any lurking creatures. You never know who is creeping around.
+  *heads up* - keep an ear 👂 out for any lurking creatures. You never know who is creeping around.
 
 
 ## Architecture
