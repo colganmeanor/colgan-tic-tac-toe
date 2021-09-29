@@ -33,6 +33,7 @@ Mod1 2108 FE
   Regardless of whether the game ends in a win or a draw, the game will begin anew a few seconds after the result screen is displayed.
   *heads up* - keep an ear 👂 out for any lurking creatures. You never know who is creeping around.
 
+  Tired of the current game? Click the button at the bottom to reset the score and begin your scary tic-tac-toe game ANEW!
 
 ## Architecture
 
