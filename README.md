@@ -71,4 +71,4 @@ Mod1 2108 FE
 
 ## Project Specs
   - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/tic-tac-toe-solo.html)
-  - My deployed page is... Not active yet since this project is still set to 'Private'.
+  - My deployed page can be found [here](https://colganmeanor.github.io/colgan-tic-tac-toe/)
